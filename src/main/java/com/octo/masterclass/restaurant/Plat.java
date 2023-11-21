@@ -1,6 +1,6 @@
 package com.octo.masterclass.restaurant;
 
-import com.octo.masterclass.domain.IPlat;
+import com.octo.masterclass.restaurant.IPlat;
 
 import java.util.List;
 
