@@ -1,0 +1,1 @@
+insert into(nom, allergene,kipik) values ("oignon" ,)
