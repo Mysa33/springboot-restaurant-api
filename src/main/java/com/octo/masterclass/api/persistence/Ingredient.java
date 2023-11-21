@@ -9,7 +9,7 @@ public class Ingredient{
         Long id;
 
         String nom;
-        @Column
+
         boolean allergene;
 
         int kipik;
