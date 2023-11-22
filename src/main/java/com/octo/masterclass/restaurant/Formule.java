@@ -2,7 +2,7 @@ package com.octo.masterclass.restaurant;
 
 import java.util.List;
 
-public class Formule {
+public class Formule implements IFormule {
     String nom;
     List<Plat> composition;
 

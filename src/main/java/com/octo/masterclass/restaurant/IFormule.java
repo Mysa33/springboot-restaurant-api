@@ -11,5 +11,4 @@ public interface IFormule {
     public String getNom();
     public void setNom(String nom);
     public List<Plat> getComposition();
-    List<Formule> getFormules();
 }

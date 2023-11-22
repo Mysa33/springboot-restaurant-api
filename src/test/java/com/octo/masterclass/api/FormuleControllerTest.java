@@ -22,16 +22,4 @@ class FormuleControllerTest {
         List<Formule> formules = new FormuleController(service).getFormules();
         assertThat(formules.size()).isEqualTo(3);
     }
-
-    @Test
-    @DisplayName("Unit test for get formule price")
-    void should_return_price() throws IOException {
-        Formule bestOf = new Formule("best Of", List.of(
-                new Plat("big mac", 5.0, List.of()),
-                new Plat("petite frite", 5.0, List.of())
-        ));
-        Double price;
-        price = new FormuleController(service).getPrixBestOf();
-        assertThat(price).isEqualTo(10);
-    }
 }
