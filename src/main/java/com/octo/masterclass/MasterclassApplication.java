@@ -1,5 +1,6 @@
 package com.octo.masterclass;
 
+import com.octo.masterclass.api.persistence.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,6 +16,8 @@ public class MasterclassApplication implements CommandLineRunner {
 	}
 	@Autowired
 	com.octo.masterclass.api.persistence.PlatRepository platRepository;
+	@Autowired
+	com.octo.masterclass.api.persistence.IngredientRepository ingredientRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -24,7 +27,9 @@ public class MasterclassApplication implements CommandLineRunner {
 		com.octo.masterclass.api.persistence.Ingredient piment = new com.octo.masterclass.api.persistence.Ingredient("piment", false, 0);
 		com.octo.masterclass.api.persistence.Ingredient fromageChelou = new com.octo.masterclass.api.persistence.Ingredient("fromage", true, 0);
 		com.octo.masterclass.api.persistence.Plat platChelou = new com.octo.masterclass.api.persistence.Plat("plat chelou", 1.50 , 1, List.of(piment , oignon, fromage, fromageChelou));
+		Iterable<Ingredient> ingredients = List.of(fromage, oignon, piment, fromageChelou);
 
+		ingredientRepository.saveAll(ingredients);
 		platRepository.save(platChelou);
 	}
 }
