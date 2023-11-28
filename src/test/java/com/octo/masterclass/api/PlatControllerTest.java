@@ -30,7 +30,7 @@ class PlatControllerTest {
     @Test
     void should_return_list_of_plats() throws IOException {
         //When
-        List<Plat> plats = (List<Plat>) new PlatController(repository).listerPlat();`
+        List<Plat> plats = (List<Plat>) new PlatController(repository).listerPlat();
         //Then
         assertThat(plats.size()).isEqualTo(2);
     }
