@@ -1,12 +1,13 @@
 package com.octo.masterclass.api;
 
-import com.octo.masterclass.api.persistence.Panier;
-import com.octo.masterclass.api.persistence.PanierRepository;
-import com.octo.masterclass.api.persistence.Plat;
-import com.octo.masterclass.api.persistence.PlatRepository;
+import com.octo.masterclass.api.persistence.*;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/paniers")
 public class PanierController {
@@ -20,5 +21,10 @@ public class PanierController {
     @GetMapping
     public Iterable<Panier> listerPanier(){
         return repository.findAll();
+    }
+    @GetMapping("/{id}")
+    public Optional<Panier> getPanier(@PathVariable("id") String idPanier) {
+        long id = Long.parseLong(idPanier);
+        return repository.findById(id);
     }
 }
