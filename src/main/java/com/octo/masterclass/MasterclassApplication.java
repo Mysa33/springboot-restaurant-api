@@ -18,6 +18,8 @@ public class MasterclassApplication implements CommandLineRunner {
 	com.octo.masterclass.api.persistence.PlatRepository platRepository;
 	@Autowired
 	com.octo.masterclass.api.persistence.IngredientRepository ingredientRepository;
+	@Autowired
+	com.octo.masterclass.api.persistence.PanierRepository panierRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -28,8 +30,10 @@ public class MasterclassApplication implements CommandLineRunner {
 		com.octo.masterclass.api.persistence.Ingredient fromageChelou = new com.octo.masterclass.api.persistence.Ingredient("fromage", true, 0);
 		com.octo.masterclass.api.persistence.Plat platChelou = new com.octo.masterclass.api.persistence.Plat("plat chelou", 1.50 , 1, List.of(piment , oignon, fromage, fromageChelou));
 		Iterable<Ingredient> ingredients = List.of(fromage, oignon, piment, fromageChelou);
+		com.octo.masterclass.api.persistence.Panier panier = new com.octo.masterclass.api.persistence.Panier(1, 120,20.5, List.of(platChelou));
 
 		ingredientRepository.saveAll(ingredients);
 		platRepository.save(platChelou);
+		panierRepository.save(panier);
 	}
 }

@@ -35,6 +35,6 @@ class IngredientRepositoryTest {
         // When
         List<Ingredient> ingredient = (List<Ingredient>) repository.findAll();
         // Then
-        assertThat(ingredient.size()).isEqualTo(4);
+        assertThat(ingredient.size()).isEqualTo(8);
     }
 }
