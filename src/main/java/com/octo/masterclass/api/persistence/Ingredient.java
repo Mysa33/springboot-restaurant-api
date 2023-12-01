@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Ingredient{
         @Id
         @GeneratedValue(strategy= GenerationType.AUTO)
-        Long id;
+        int id;
 
         String nom;
 
@@ -20,11 +20,11 @@ public class Ingredient{
                 this.kipik = kipik;
         }
 
-        public Long getId() {
+        public int getId() {
                 return id;
         }
 
-        public void setId(Long id) {
+        public void setId(int id) {
                 this.id = id;
         }
 
