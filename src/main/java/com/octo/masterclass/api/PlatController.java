@@ -2,10 +2,7 @@ package com.octo.masterclass.api;
 
 import com.octo.masterclass.api.persistence.Plat;
 import com.octo.masterclass.api.persistence.PlatRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -27,5 +24,10 @@ public class PlatController {
     public Optional<Plat> getPlat(@PathVariable("id") String idPlat) {
         long id = Long.parseLong(idPlat);
         return repository.findById(id);
+    }
+
+    @PostMapping
+    public Plat creerPlat(@RequestBody Plat plat) {
+        return repository.save(plat);
     }
 }

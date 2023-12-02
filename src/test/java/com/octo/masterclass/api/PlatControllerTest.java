@@ -41,5 +41,6 @@ class PlatControllerTest {
         Optional<Plat> plat = new PlatController(repository).getPlat("1");
         //Then
         assertThat((plat).get()).isNotNull();
+        assertThat((plat).get()).hasFieldOrProperty("nom");
     }
 }

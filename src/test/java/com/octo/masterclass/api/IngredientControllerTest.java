@@ -2,8 +2,6 @@ package com.octo.masterclass.api;
 
 import com.octo.masterclass.api.persistence.Ingredient;
 import com.octo.masterclass.api.persistence.IngredientRepository;
-import com.octo.masterclass.api.persistence.Panier;
-import com.octo.masterclass.api.persistence.Plat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +41,7 @@ class IngredientControllerTest {
         Optional<Ingredient> ingredient = new IngredientController(repository).getIngredient("1");
         //Then
         assertThat((ingredient).get()).isNotNull();
+        assertThat((ingredient).get()).hasFieldOrProperty("id");
     }
 
     @Test

@@ -3,6 +3,7 @@ package com.octo.masterclass.api;
 import com.octo.masterclass.api.persistence.Ingredient;
 import com.octo.masterclass.api.persistence.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +30,12 @@ public class IngredientController {
     @PostMapping
     public Ingredient creerIngredient(@RequestBody Ingredient ingredient) {
         return repository.save(ingredient);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteIngredient(@PathVariable("id") String idStr) throws Exception {
+        long id = Long.parseLong(idStr);
+        repository.deleteById(id);
+        return ResponseEntity.ok("Supprimé avec succès");
     }
 }
