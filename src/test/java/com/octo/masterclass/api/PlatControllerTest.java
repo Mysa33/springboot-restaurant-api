@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
@@ -33,5 +34,12 @@ class PlatControllerTest {
         List<Plat> plats = (List<Plat>) new PlatController(repository).listerPlat();
         //Then
         assertThat(plats.size()).isEqualTo(2);
+    }
+    @Test
+    void should_return_plat() throws IOException {
+        //When
+        Optional<Plat> plat = new PlatController(repository).getPlat("1");
+        //Then
+        assertThat((plat).get()).isNotNull();
     }
 }

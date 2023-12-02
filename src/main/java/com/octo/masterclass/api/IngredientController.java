@@ -5,6 +5,7 @@ import com.octo.masterclass.api.persistence.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -12,8 +13,6 @@ import java.util.Optional;
 public class IngredientController {
     @Autowired
     private IngredientRepository repository;
-
-
     public IngredientController(IngredientRepository repository) {
         this.repository = repository;
     }

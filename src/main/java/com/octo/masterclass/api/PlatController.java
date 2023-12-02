@@ -24,7 +24,8 @@ public class PlatController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Plat> getPlat(@PathVariable("id") Long idPlat) {
-        return repository.findById(idPlat);
+    public Optional<Plat> getPlat(@PathVariable("id") String idPlat) {
+        long id = Long.parseLong(idPlat);
+        return repository.findById(id);
     }
 }
